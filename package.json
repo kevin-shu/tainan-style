@@ -11,6 +11,12 @@
     "url": "git@github.com:nko3/tainan-style.git"
   },
   "dependencies": {
+    "ejs":              "*"
+    "ejs-ext":          "< 0.1.2"
+    "express":          "~2.x"
+    "railway":          ">= 0.2.6"
+    "jugglingdb":       ">= 0.1.0"
+    "coffee-script":    ">= 1.1.1"
   },
   "engines": {
     "node": "0.8.x"

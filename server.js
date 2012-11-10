@@ -1,7 +1,10 @@
-var http = require('http');
-http.createServer(function (req, res) {
-  res.writeHead(200, {'Content-Type': 'text/plain'});
-  res.end('Hello World\n');
-}).listen(8000);
+#!/usr/bin/env node
 
-console.log('Server running at http://0.0.0.0:8000/');
+var app = module.exports = require('railway').createServer();
+
+if (!module.parent) {
+    var port = process.env.PORT || 3000
+    app.listen(port);
+    console.log("Railway server listening on port %d within %s environment", port, app.settings.env);
+}
+
