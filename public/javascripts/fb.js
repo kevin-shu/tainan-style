@@ -6,7 +6,8 @@ window.fbAsyncInit = function() {
         xfbml      : true  // parse XFBML
       });
       FB.Event.subscribe('auth.sessionChange', function(response) {  
-          if (response.session) {  
+          if (response.session) { 
+             
             document.location.reload(true);
             //alert(response.authResponse.accessToken);
           } else {  
@@ -19,7 +20,7 @@ window.fbAsyncInit = function() {
                 window.accessToken = response.authResponse.accessToken; // accessToken
                 document.getElementById("msg").innerText="Welcome "+uid;
            } else if (response.status === 'not_authorized') {  
-                alert("You havn't login yet.");
+                //alert("You havn't login yet.");
            } else {   
                 
            }

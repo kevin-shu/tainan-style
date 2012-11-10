@@ -1,0 +1,53 @@
+<div class="page-header">
+    <h1>Details of bet</h1>
+</div>
+
+<div id="bet" class="bet">
+    <div id="bet-header">
+        <table class="table table-bordered">
+            <tbody>
+                <tr style="text-align:center">
+                    <th id="blue" style="width:400px; background: blue; color: white; text-align:center;"><%= bet.blue %></th>
+                    <th id="vs" style="width:160px;text-align:center;">vs</th>
+                    <th id="red" style="width:400px; background: red; color: white; text-align:center;"><%= bet.red %></th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="bet-body">
+        <table class="table table-bordered">
+            <tbody>
+                <tr>
+                    <th id="blue_gambler" style="width:240px; background: blue; color: white;"></th>
+                    <th id="chat_room" style="width:480px;"></th>
+                    <th id="red_gambler" style="width:240px; background: red; color: white;"></th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<table class="table table-bordered">
+    <tbody>
+        <tr><th>title</th><td><%= bet.title %></td></tr>
+        <tr><th>description</th><td><%= bet.description %></td></tr>
+        <tr><th>blue</th><td><%= bet.blue %></td></tr>
+        <tr><th>red</th><td><%= bet.red %></td></tr>
+        <tr><th>stream</th><td><%= bet.stream %></td></tr>
+        <tr><th>status</th><td><%= bet.status %></td></tr>
+        <tr><th>red_gambler</th><td><%= bet.red_gambler %></td></tr>
+        <tr><th>red_stake</th><td><%= bet.red_stake %></td></tr>
+        <tr><th>blue_gambler</th><td><%= bet.blue_gambler %></td></tr>
+        <tr><th>blue_stake</th><td><%= bet.blue_stake %></td></tr>
+        <tr><th>owner</th><td><%= bet.owner %></td></tr>
+        <tr><th>follower</th><td><%= bet.follower %></td></tr>    
+    </tbody>
+</table>
+
+<div class="well">
+    <%- link_to('<i class="icon-edit icon-white"></i> Edit', path_to.edit_bet(bet), {class: 'btn btn-primary'}) %>
+    <%- link_to('<i class="icon-remove icon-white"></i> Delete', path_to.bet(bet), {class: 'btn btn-danger', method: 'delete', remote: true, jsonp: '(function (u) { location.href = u; })'}) %>
+    or
+    <%- link_to('Back to index', path_to.bets()) %>
+</div>

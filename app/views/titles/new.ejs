@@ -1,0 +1,11 @@
+<div class="page-header">
+    <h1>New title</h1>
+</div>
+
+<% form_for(title, {action: path_to.titles(), method: 'POST', id: "title_form", class: 'form-horizontal'}, function (form) { %>
+    <%- partial('titles/form.ejs', {locals: {form: form, title: title}}) %>
+    <div class="form-actions">
+        <%- form.submit('<i class="icon-ok icon-white"></i> Create title', {class: 'btn btn-primary'}) %> or
+        <%- link_to('Cancel', path_to.titles(), {class: 'btn'}) %>
+    </div>
+<% });%>
