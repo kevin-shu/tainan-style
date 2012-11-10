@@ -3,9 +3,50 @@
 </div>
 
 <% form_for(bet, {action: path_to.bets(), method: 'POST', id: "bet_form", class: 'form-horizontal'}, function (form) { %>
-    <%- partial('bets/form.ejs', {locals: {form: form, bet: bet}}) %>
+
+<%- errorMessagesFor(bet) %>
+<div class="control-group">
+   <%- form.label("uid", false, {class: "control-label"}) %>
+   <div class="controls">
+       <input name="Bet[uid]" id="Bet_uid" disabled="disabled"/>
+   </div>
+</div>
+<div class="control-group">
+   <%- form.label("title", false, {class: "control-label"}) %>
+   <div class="controls">
+       <%- form.input("title") %>
+   </div>
+</div>
+<div class="control-group">
+   <%- form.label("description", false, {class: "control-label"}) %>
+   <div class="controls">
+       <%- form.input("description") %>
+   </div>
+</div>
+<div class="control-group">
+   <%- form.label("blue", false, {class: "control-label"}) %>
+   <div class="controls">
+       <%- form.input("blue") %>
+   </div>
+</div>
+<div class="control-group">
+   <%- form.label("red", false, {class: "control-label"}) %>
+   <div class="controls">
+       <%- form.input("red") %>
+   </div>
+</div>
+<div class="control-group">
+   <%- form.label("stream", false, {class: "control-label"}) %>
+   <div class="controls">
+       <%- form.input("stream") %>
+   </div>
+</div>
     <div class="form-actions">
         <%- form.submit('<i class="icon-ok icon-white"></i> Create bet', {class: 'btn btn-primary'}) %> or
         <%- link_to('Cancel', path_to.bets(), {class: 'btn'}) %>
     </div>
 <% });%>
+
+<script type="javascript/text">
+
+<script>

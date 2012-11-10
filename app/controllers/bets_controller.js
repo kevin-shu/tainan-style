@@ -1,6 +1,7 @@
 load('application');
 
 before(loadBet, {only: ['show', 'edit', 'update', 'destroy']});
+before(authenticate_user, {only: ['new','edit', 'update', 'destroy']})
 
 action('new', function () {
     this.title = 'New bet';
@@ -75,4 +76,10 @@ function loadBet() {
             next();
         }
     }.bind(this));
+}
+
+function authenticate_user() {
+    if(session.user=="" || session.user==null){
+        redirect(path_to.bets);
+    }
 }

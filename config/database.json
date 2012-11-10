@@ -1,10 +1,20 @@
 { "development":
-  { "driver":   "memory"
+  {
+    "driver":   "mongoose"
+    , "url":      "mongodb://IbetU:1234@localhost/IBU-test" 
   }
 , "test":
-  { "driver":   "memory"
+  {
+    "driver":   "mongoose"
+    , "url":      "mongodb://IbetU:1234@140.116.250.14/IBU-test" 
   }
 , "production":
-  { "driver":   "memory"
+  {
+     "driver":   "mysql"
+     ,"host":     "140.116.250.14"
+     , "post":     3306
+     , "database": "IbetU"
+     , "username": "IbetU"
+     , "password": "1qaz2wsx"
   }
 }

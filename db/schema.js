@@ -22,23 +22,12 @@
 */
 
 var User = describe('User', function () {
+    property('uid', String);
     property('name', String);
     property('email', String);
     property('point', String);
     property('assets', String);
     property('history', String);
-});
-var Event = describe('Event', function () {
-    property('title', String);
-    property('description', String);
-    property('stream', String)
-    property('status', String);
-    property('red_gambler', String);
-    property('red_stake', String);
-    property('blue_gambler', String);
-    property('blue_stake', String);
-    property('owner', String);
-    property('follower', String);
 });
 var Bet = describe('Bet', function () {
     property('title', String);

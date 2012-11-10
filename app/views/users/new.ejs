@@ -3,7 +3,25 @@
 </div>
 
 <% form_for(user, {action: path_to.users(), method: 'POST', id: "user_form", class: 'form-horizontal'}, function (form) { %>
-    <%- partial('users/form.ejs', {locals: {form: form, user: user}}) %>
+    <%- errorMessagesFor(user) %>
+    <div class="control-group">
+       <%- form.label("facebook id", false, {class: "control-label"}) %>
+       <div class="controls">
+           <input name="User[uid]" id="uid" disabled="disabled"/>
+       </div>
+    </div>
+    <div class="control-group">
+       <%- form.label("name", false, {class: "control-label"}) %>
+       <div class="controls">
+           <%- form.input("name") %>
+       </div>
+    </div>
+    <div class="control-group">
+       <%- form.label("email", false, {class: "control-label"}) %>
+       <div class="controls">
+           <%- form.input("email") %>
+       </div>
+    </div>
     <div class="form-actions">
         <%- form.submit('<i class="icon-ok icon-white"></i> Create user', {class: 'btn btn-primary'}) %> or
         <%- link_to('Cancel', path_to.users(), {class: 'btn'}) %>
