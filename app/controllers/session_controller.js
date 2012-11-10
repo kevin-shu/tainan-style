@@ -9,6 +9,8 @@ action('login', function () {
             session.user = user;
             //next();
             redirect('/');
+
+            console.log(session.user);
         }
     }.bind(this));
   

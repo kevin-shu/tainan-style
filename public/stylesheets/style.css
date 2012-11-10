@@ -5,3 +5,23 @@ color: white;
 #nav {
 background: grey;
 }
+body{
+background: url("/images/background.jpg");
+}
+
+#content{width:960px; margin: auto; padding:5px;  }
+
+#popular{width:508px; height:508px; margin:5px 90px 5px 5px; float:left;}
+#latest{width:340px; height:508px; float:left; margin:5px; }
+/*大正方形*/
+#po1{width:328px; height:328px; background-color:#fff; float:left;margin:5px;}
+/*長方形*/
+#po5{width:328px; height:160px; background-color:#fff; float:left;margin:5px;}
+/*小正方形*/
+/*白色*/    #po3, #la2, #la5{width:160px; height:160px; background-color:#2b2b2b; float:left; margin:5px;}
+/*黑色*/    #po2, #po4, #la1, #la3,  #la4,  #la6{width:160px; height:160px; background-color:#fff; float:left; margin:5px;}
+
+.style,.style_b{box-shadow:0px 0px 3px 0px rgba(0,0,0,0.7);}    
+.style_b h4,.style_b h5,.style_b h2 { color:#FFF;}
+h4,h5{ text-align:center;}
+

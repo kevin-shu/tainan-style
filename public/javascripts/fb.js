@@ -9,6 +9,11 @@ window.fbAsyncInit = function() {
           document.location.href="http://"+window.location.host+"/session/login?uid="+response.authResponse.userID; 
           //document.location.reload(true);
           //alert(response.authResponse.accessToken);
+      });
+      FB.Event.subscribe('auth.authResponseChange', function(response) {  
+          //document.location.href="http://"+window.location.host+"/session/login?uid="+response.authResponse.userID; 
+          //document.location.reload(true);
+          //alert(response.authResponse.accessToken);
       });  
       FB.getLoginStatus(function (response) {
            if (response.status === 'connected') {  
@@ -22,6 +27,15 @@ window.fbAsyncInit = function() {
                         $("#User_email").val(response.email);
                     });
                 }
+
+                if(window.location.pathname=='/bets/new'){
+                    FB.api('/me?fields=name,email', function(response) {
+                        $("#Bet_owner").val(response.id);
+                    });
+                }
+                $("#login").click(function(){
+                    document.location.href="http://"+window.location.host+"/session/login?uid="+uid;
+                });
            } else if (response.status === 'not_authorized') {  
                 //alert("You havn't login yet.");
            } else {   

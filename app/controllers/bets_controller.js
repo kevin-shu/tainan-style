@@ -7,6 +7,7 @@ action('new', function () {
     this.title = 'New bet';
     this.bet = new Bet;
     render();
+    console.log("This is new bet.");
 });
 
 action(function create() {
@@ -35,6 +36,11 @@ action(function index() {
 
 action(function show() {
     this.title = 'Bet show';
+    if(session.user!={} && session.user!=null){
+        flash('name', session.user.name);
+    }
+    console.log(session.user);
+    console.log("This is show");
     render();
 });
 
@@ -79,7 +85,9 @@ function loadBet() {
 }
 
 function authenticate_user() {
-    if(session.user=="" || session.user==null){
+    if(session.user=={} || session.user==null){
         redirect(path_to.bets);
     }
+    next();
+    console.log("authentication end");
 }
