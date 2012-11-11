@@ -19,8 +19,8 @@
             <tbody>
                 <tr>
                     <th id="blue_gambler" style="width:240px; background: blue; color: white;"></th>
-                    <th id="chat_room" style="width:480px;">
-                        
+                    <th id="" style="width:480px;">
+                        <div id="chat_room" style="height:240px;"></div>
                         <input id="speach" style="width:400px;" />
                         <input type="button" id="speach_send" class="btn" value="send" style="width:60px;"/>
                     </th>
@@ -56,16 +56,15 @@
     <%- link_to('Back to index', path_to.bets()) %>
 </div>
 
-<script src="http://140.116.250.26:8080/socket.io/socket.io.js"></script>
+<script src="/javascripts/socket.io.js"></script>
 <script>
 var socket = io.connect('http://140.116.250.14:8080');
 
 // on connection to server, ask for user's name with an anonymous callback
 socket.on('connect', function(){
     // call the server-side function 'adduser' and send one parameter (value of prompt)
-
         <% var flash = request.flash('name').pop(); if (flash) { %>
-            socket.emit('adduser', prompt("<%- flash %>"));
+            socket.emit('adduser', "<%- flash %>");
         <% } %>
     });
 
@@ -95,7 +94,7 @@ function switchRoom(room){
 $(function(){
     // when the client clicks SEND
     $('#speach_send').click( function() {
-      var message = $('#data').val();
+      var message = $('#speach').val();
       $('#speach').val('');
       // tell server to execute 'sendchat' and send along one parameter
       socket.emit('sendchat', message);
