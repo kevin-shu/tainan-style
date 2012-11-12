@@ -38,7 +38,9 @@
 <div class="control-group">
    <%- form.label("stream", false, {class: "control-label"}) %>
    <div class="controls">
-       <%- form.input("stream") %>
+       <span><img src="/images/ustream.png" style="height:60px" /></span>
+       <span><img src="/images/justin.png" style="height:60px" /></span>
+       <input name="Bet[stream]" id="Bet_stream" style="display:none;"/>
    </div>
 </div>
     <div class="form-actions">
@@ -47,4 +49,47 @@
     </div>
 <% });%>
 
+<!-- Modal -->
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="stream_modal_label"></h3>
+  </div>
+  <div class="modal-body">
+    <p id="hint"></p>
+    <input id="stream"/>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    <button id="modal-confirm" class="btn btn-primary">Save changes</button>
+  </div>
+</div>
 
+
+
+<script type="javascript/text">
+    function embedUstream(){
+        $("#stream_modal_label").text("embedded Ustream to broacast!");
+        $(".modal-body #stream").text("Just input your Ustream id bellow and you friends could see what you bet on.");
+        $('#myModal').modal({
+            keyboard: false
+        });
+        $("#modal-confirm").click(function(){
+            $("Bet_stream").val($("stream").val());
+        });
+    }
+
+
+    function embedJustin(){
+        $("#stream_modal_label").text("embedded justin to broacast!");
+        $(".modal-body #stream").text("Just input your Ustream id bellow and you friends could see what you bet on.");
+        $('#myModal').modal({
+            keyboard: false
+        });
+        $("#modal-confirm").click(function(){
+            $("Bet_stream").val($("stream").val());
+        });
+    }
+
+
+</script>

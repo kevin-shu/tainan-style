@@ -1,7 +1,7 @@
 load('application');
 
 before(loadBet, {only: ['show', 'edit', 'update', 'destroy']});
-before(authenticate_user, {only: ['new','edit', 'update', 'destroy']})
+//before(authenticate_user, {only: ['new','edit', 'update', 'destroy']})
 
 action('new', function () {
     this.title = 'New bet';
@@ -37,7 +37,7 @@ action(function index() {
 action(function show() {
     this.title = 'Bet show';
     if(session.user!={} && session.user!=null){
-        flash('name', session.user.name);
+        flash('name', session.user);
     }
     console.log(session.user);
     console.log("This is show");

@@ -1,7 +1,7 @@
 { "development":
   {
     "driver":   "mongoose"
-    , "url":      "mongodb://IbetU:1234@localhost/IBU-test" 
+    , "url":      "mongodb://IbetU:1234@localhost/IBU-dev" 
   }
 , "test":
   {

@@ -1,27 +1,24 @@
+
 load('application');
 
 action('login', function () {
-    User.findOne({'uid':params.uid}, function (err, user) {
-        //check the user
-        if (err || !user) { 
-            redirect(path_to.new_user);
-        } else {
-            session.user = user;
-            //next();
-            redirect('/');
 
-            console.log(session.user);
-        }
-    }.bind(this));
-  
-//    session.
-//    render({
-//        title: "session#login"
-//    });
+    //var mongo = require('mongoskin');
+    //var db = mongo.db('localhost:27017/test?auto_reconnect');    
+
+    //User.where('uid',params.uid).findOne(function(err,user){
+    //console.log(db.users.find({'uid': req.query.uid}));
+    session.user = req.query.name;
+    redirect('/');
+
+    console.log(session.user);
 });
 
+/*
 action('logout', function () {
     render({
         title: "session#logout"
     });
 });
+*/
+

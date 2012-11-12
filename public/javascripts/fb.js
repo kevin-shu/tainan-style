@@ -5,8 +5,11 @@ window.fbAsyncInit = function() {
         cookie     : true, // enable cookies to allow the server to access the session
         xfbml      : true  // parse XFBML
       });
-      FB.Event.subscribe('auth.login', function(response) {  
-          document.location.href="http://"+window.location.host+"/session/login?uid="+response.authResponse.userID; 
+      FB.Event.subscribe('auth.login', function(response) { 
+          var url = "https://graph.facebook.com/"+response.authResponse.userID ;
+          $.getJSON(url,function(d){
+              document.location.href="http://"+window.location.host+"/session/login?name="+d.name; 
+          });
           //document.location.reload(true);
           //alert(response.authResponse.accessToken);
       });
@@ -33,6 +36,28 @@ window.fbAsyncInit = function() {
                         $("#Bet_owner").val(response.id);
                     });
                 }
+
+               // if(window.location.pathname=='/bets'){
+                    var photo="", name="";
+                    FB.api('/me?fields=name,email', function(response) {
+                        photo="https://graph.facebook.com/"+response.id+"/picture";
+                        name=response.name;
+                    });
+                    $("#red").click(function(){
+                        $("#red_gambler").append(
+                            $("<div></div>").append("<img src='"+photo+"'/>").append("<span>"+name+"</span>")
+                        );
+                        $("#red").unbind();
+                        $("#blue").unbind();                        
+                    });
+                    $("#blue").click(function(){
+                        $("#blue_gambler").append(
+                            $("<div></div>").append("<img src='"+photo+"'/>").append("<span>"+name+"</span>")
+                        );
+                        $("#red").unbind();
+                        $("#blue").unbind();
+                    });
+                //}
                 $("#login").click(function(){
                     document.location.href="http://"+window.location.host+"/session/login?uid="+uid;
                 });
