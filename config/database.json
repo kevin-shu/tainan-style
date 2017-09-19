@@ -1,11 +1,11 @@
 { "development":
   {
-    "driver":   "mongoose"
+    "driver":   "mongodb"
     , "url":      "mongodb://IbetU:1234@localhost/IBU-dev" 
   }
 , "test":
   {
-    "driver":   "mongoose"
+    "driver":   "mongodb"
     , "url":      "mongodb://IbetU:1234@140.116.250.14/IBU-test" 
   }
 , "production":
